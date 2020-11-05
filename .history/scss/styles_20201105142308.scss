@@ -1,0 +1,34 @@
+$peach: #f1e7e7;
+
+body {
+    background-color: $peach;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 50%;
+    margin: 0 auto;
+
+    &__container {
+        padding: 0.5rem 1rem;
+        margin-top: 3rem;
+    }
+
+    &__heading {
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    &__title-text {
+        text-align: center;
+        font-size: 2rem;
+        color: #de3838;
+    }
+
+    &__category-text {
+        text-align: center;
+        font-size: 2rem;
+        color: #ff8484;
+    }
+}

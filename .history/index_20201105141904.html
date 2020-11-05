@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <div id="main"></div>
+    <script src="bower_components/handlebars/handlebars.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/x-handlebars-template" id="template-script">
+            <div class="card">
+                <div class="card__container">
+                    <h4 class="card__heading"><b>Title</b></h4>
+                    <p class="card__title-text">Harry Potter</p>
+                    <p class="card__category-text">Category: <i>Children</i></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__container">
+                    <h4 class="card__heading"><b>Title</b></h4>
+                    <p class="card__title-text">Gone Girl</p>
+                    <p class="card__category-text">Category: <i>Adult</i></p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__container">
+                    <h4 class="card__heading"><b>Title</b></h4>
+                    <p class="card__title-text">Charlie and the Chocolate Factory</p>
+                    <p class="card__category-text">Category: <i>Children</i></p>
+                </div>
+            </div>
+    </script>
+    <script src="assets/js/books.js"></script>
+    <script src="assets/js/index.js"></script>
+</body>
+</html>
+
+
+<!-- <p class="card__text">{{compareEquality a b real makeBelieve}}!</p> -->
+<!-- books -->
+<!-- If category is not children, don't show -->
