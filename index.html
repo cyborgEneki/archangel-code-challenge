@@ -11,8 +11,8 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/x-handlebars-template" id="template-script">
         {{#each books}}
-            {{#returnChildrenBooks category 'Children' this}}
-            {{/returnChildrenBooks }}
+            {{#if category 'Children' this}}
+            {{/if }}
         {{/each}}
     </script>
     <script src="assets/js/books.js"></script>

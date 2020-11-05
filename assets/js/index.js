@@ -1,5 +1,5 @@
 $(function () {
-    Handlebars.registerHelper("returnChildrenBooks", function (a, b, c) {
+    Handlebars.registerHelper("if", function (a, b, c) {
         if (a == b) {
             return `
                 <div class="card">
