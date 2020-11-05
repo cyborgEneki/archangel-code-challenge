@@ -1,15 +1,11 @@
 $(function () {
-    Handlebars.registerHelper("if", function (a, b, c) {
-        if (a == b) {
-            return `
-                <div class="card">
-                    <div class="card__container">
-                        <div class="card__heading"><b>${c.title}</b></div>
-                        <p class="card__title-text">${c.author}</p>
-                        <p class="card__category-text">Category: <i>${c.category}</i></p>
-                    </div>
-                </div>
-            `
+    Handlebars.registerHelper("if", function (expression, options) {
+        with(this) {
+            var result = eval(expression)
+        };
+
+        if (result) {
+            return options.fn(this);
         }
     });
 

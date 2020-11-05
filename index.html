@@ -11,8 +11,15 @@
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/x-handlebars-template" id="template-script">
         {{#each books}}
-            {{#if category 'Children' this}}
-            {{/if }}
+            {{#if "category=='Children'"}}
+                <div class="card">
+                    <div class="card__container">
+                        <div class="card__heading"><b>{{title}}</b></div>
+                        <p class="card__title-text">{{author}}</p>
+                        <p class="card__category-text">Category: <i>{{category}}</i></p>
+                    </div>
+                </div>
+            {{/if}}
         {{/each}}
     </script>
     <script src="assets/js/books.js"></script>
