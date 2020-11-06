@@ -1,5 +1,5 @@
-$(function () {
-    let renderChildrenBooks = () => {
+$(function () { 
+    function renderChildrenBooks () {
         let template = $('#template-script').html(),
             compiled = Handlebars.compile(template),
             rendered = compiled({
