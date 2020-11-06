@@ -20,26 +20,36 @@ $(function () {
 
     main.books = main.initializeBooks();
 
-    Handlebars.registerHelper("if", function (expression, options) {
-        with(this) {
-            if (expression.includes("=") || expression.includes("<") || expression.includes(">")) {
+    Handlebars.registerHelper("if", function (a, b, options) {
+        if (typeof b === 'string') {
+            with(this) {
+                expression = a == b
                 var result = eval(expression)
+            };
+
+            if (result) {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
             }
-            else {
-                let arrayWithObjectsWhoseKeyMatchesTheExpressionValue = main.books.filter(item => item.category == expression);
+        }
+
+        // In the absence of a second argument, the helper object becomes 'b' while 'options' remains undefined
+        if (typeof b === 'object') {
+            with(this) {
+                let arrayWithObjectsWhoseKeyMatchesTheExpressionValue = main.books.filter(item => item.category == a);
                 let oneObject = arrayWithObjectsWhoseKeyMatchesTheExpressionValue[0]
 
                 const getKey = (obj, val) => Object.keys(obj).find(key => obj[key] === val);
-                let correspondingKey = getKey(oneObject, expression);
-                expression = correspondingKey
-                var result = eval(expression)
+                let correspondingKey = getKey(oneObject, a);
+                var result = correspondingKey
             }
-        };
 
-        if (result) {
-            return options.fn(this);
-        } else {
-            return options.inverse(this);
+            if (result) {
+                return b.fn(this);
+            } else {
+                return b.inverse(this);
+            }
         }
     });
 
