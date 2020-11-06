@@ -20,37 +20,33 @@ $(function () {
 
     main.books = main.initializeBooks();
 
-    Handlebars.registerHelper("if", function (a, b, options) {
-        let result;
+    Handlebars.registerHelper("if", function (a, b, c) {
+        let result, options;
 
         if (typeof b === 'string') {
             with(this) {
-                expression = a == b
-                result = eval(expression)
+                expression = a == b;
+                result = eval(expression);
+                options = c;
             };
-
-            if (result) {
-                return options.fn(this);
-            } else {
-                return options.inverse(this);
-            }
         }
 
-        // In the absence of a second argument, the helper object becomes 'b' while 'options' remains undefined
+        // In the absence of a second argument, the helper object becomes 'b' while 'c' remains undefined
         if (typeof b === 'object') {
             with(this) {
                 function getCorrespondingKey(obj, val) {
                     return Object.keys(obj).find(key => obj[key] === val);
                 }
                 let correspondingKey = getCorrespondingKey(this, a);
-                result = correspondingKey
+                result = correspondingKey;
+                options = b;
             }
+        }
 
-            if (result) {
-                return b.fn(this);
-            } else {
-                return b.inverse(this);
-            }
+        if (result) {
+            return options.fn(this);
+        } else {
+            return options.inverse(this);
         }
     });
 
